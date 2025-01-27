@@ -1,0 +1,109 @@
+<div class="charsheet">
+    <!-- Character Info Section -->
+    <div class="section character-info">
+        <h2>// CLASSIFIED PERSONNEL FILE //</h2>
+        <div class="row">
+            <label>ID: <input type="text" name="attr_character_name" /></label>
+            <label>DIVISION: <input type="text" name="attr_background" /></label>
+        </div>
+    </div>
+
+    <!-- Attributes Section -->
+    <div class="section attributes">
+        <h2>Attributes</h2>
+        <div class="row">
+            <div class="column">
+                <label>Fighting</label>
+                <input type="number" name="attr_fighting" />
+                <button type="roll" value="&{template:default} {{name=Fighting Check}} {{result=[[?{Number of Dice|@{fighting}}d6>5f1]]}}">Roll</button>
+            </div>
+            <div class="column">
+                <label>Shooting</label>
+                <input type="number" name="attr_shooting" />
+                <button type="roll" value="&{template:default} {{name=Shooting Check}} {{result=[[?{Number of Dice|@{shooting}}d6>5f1]]}}">Roll</button>
+            </div>
+            <div class="column">
+                <label>Endurance</label>
+                <input type="number" name="attr_endurance" />
+                <button type="roll" value="&{template:default} {{name=Endurance Check}} {{result=[[?{Number of Dice|@{endurance}}d6>5f1]]}}">Roll</button>
+            </div>
+            <div class="column">
+                <label>Resolve</label>
+                <input type="number" name="attr_resolve" />
+                <button type="roll" value="&{template:default} {{name=Resolve Check}} {{result=[[?{Number of Dice|@{resolve}}d6>5f1]]}}">Roll</button>
+            </div>
+            <div class="column">
+                <label>Tactics</label>
+                <input type="number" name="attr_tactics" />
+                <button type="roll" value="&{template:default} {{name=Tactics Check}} {{result=[[?{Number of Dice|@{tactics}}d6>5f1]]}}">Roll</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keywords Section -->
+    <div class="section keywords">
+        <h2>Keywords</h2>
+        <div class="row">
+            <fieldset class="repeating_keywords">
+                <input type="text" name="attr_keyword" placeholder="Keyword" />
+                <select name="attr_keyword_status">
+                    <option value="active">Active</option>
+                    <option value="burned">Burned</option>
+                </select>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- Health & Armor Section -->
+    <div class="section health-armor">
+        <h2>Health & Armor</h2>
+        <div class="row">
+            <div class="column">
+                <label>Current HP: <input type="text" name="attr_current_hp" /></label>
+                <label>Max HP: <input type="text" name="attr_max_hp" value="6" /></label>
+            </div>
+            <div class="column">
+                <label>Armor Type:</label>
+                <select name="attr_armor_type">
+                    <option value="none">None</option>
+                    <option value="light">Light (1 DR, 2 hits)</option>
+                    <option value="medium">Medium (2 DR, 4 hits)</option>
+                    <option value="heavy">Heavy (3 DR, 6 hits)</option>
+                </select>
+                <label>Hits Remaining: <input type="text" name="attr_armor_hits" /></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Equipment Section -->
+    <div class="section equipment">
+        <h2>Equipment</h2>
+        <div class="row">
+            <div class="column">
+                <h3>Weapons</h3>
+                <fieldset class="repeating_weapons">
+                    <input type="text" name="attr_weapon_name" placeholder="Weapon Name" />
+                    <select name="attr_weapon_type">
+                        <option value="melee">Melee (2 Damage)</option>
+                        <option value="light">Light Firearm (3 Damage)</option>
+                        <option value="heavy">Heavy Weapon (5 Damage)</option>
+                    </select>
+                    <input type="text" name="attr_weapon_upgrades" placeholder="Upgrades" />
+                </fieldset>
+            </div>
+            <div class="column">
+                <h3>Intel</h3>
+                <fieldset class="repeating_intel">
+                    <input type="text" name="attr_intel_name" placeholder="Intel Name" />
+                    <textarea name="attr_intel_details" placeholder="Intel Details"></textarea>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Section -->
+    <div class="section notes">
+        <h2>Notes</h2>
+        <textarea name="attr_notes" placeholder="Write your notes here..."></textarea>
+    </div>
+</div>
